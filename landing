@@ -1,0 +1,7 @@
+cd ruta/del/proyecto
+git init
+git add .
+git commit -m "Landing Cíclicas"
+git branch -M main
+git remote add origin https://github.com/TU_USUARIO/ciclicas-landing.git
+git push -u origin main
