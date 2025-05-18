@@ -1,7 +1,122 @@
-cd ruta/del/proyecto
-git init
-git add .
-git commit -m "Landing Cíclicas"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/ciclicas-landing.git
-git push -u origin main
+from pathlib import Path
+from zipfile import ZipFile
+
+# Define the path to save the HTML file
+html_content = """
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CÍCLICAS: Atravesando el Viaje Interior</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff0f3;
+            color: #4a1c1c;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #ffccd5;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #9f1d2b;
+        }
+        section {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h2 {
+            color: #9f1d2b;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 12px 24px;
+            background-color: #d6336c;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffe6e9;
+            color: #6c1a1a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CÍCLICAS: Atravesando el Viaje Interior</h1>
+        <p>Mentoría Individual</p>
+    </header>
+    <section>
+        <h2>¿Qué es esta mentoría?</h2>
+        <p>Un espacio íntimo y personalizado para reconectar con tu ciclo, tu cuerpo y tu poder hormonal.</p>
+        <p>Es un acompañamiento individual de 3 meses, diseñado para mujeres que quieren sanar su relación con la menstruación, dejar los anticonceptivos o vivir en armonía con su biología cíclica.</p>
+    </section>
+    <section>
+        <h2>¿Para quién es esta mentoría?</h2>
+        <ul>
+            <li>Mujeres en edad fértil</li>
+            <li>En perimenopausia</li>
+            <li>En menopausia</li>
+        </ul>
+        <p>Especialmente si:</p>
+        <ul>
+            <li>Tienes menstruaciones dolorosas, abundantes o irregulares.</li>
+            <li>Diagnóstico de SOP, endometriosis, síndrome postpíldora.</li>
+            <li>Quieres dejar los anticonceptivos.</li>
+            <li>Quieres reconectar con tu cuerpo y energía.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>¿Qué incluye?</h2>
+        <ul>
+            <li>6 sesiones individuales vía Zoom</li>
+            <li>Interpretación de analíticas hormonales</li>
+            <li>Protocolos de suplementación personalizados</li>
+            <li>Guía de alimentación por fase del ciclo</li>
+            <li>Kit de bienvenida CÍCLICAS</li>
+            <li>Acompañamiento por WhatsApp</li>
+        </ul>
+    </section>
+    <section>
+        <h2>¿Qué puedes lograr?</h2>
+        <ul>
+            <li>Comprender tu perfil hormonal</li>
+            <li>Estilo de vida alineado con tu ciclo</li>
+            <li>Estabilidad emocional y energética</li>
+            <li>Sanar condiciones hormonales</li>
+            <li>Tomar decisiones con autonomía</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Detalles</h2>
+        <p><strong>Duración:</strong> 3 meses</p>
+        <p><strong>Valor:</strong> 300 USD (Consulta en pesos dominicanos)</p>
+    </section>
+    <section>
+        <h2>¿Cómo empezar?</h2>
+        <p>La mentoría abre cupos limitados cada mes. Escríbeme para verificar disponibilidad.</p>
+        <a class="cta-button" href="mailto:tuemail@ejemplo.com">Escríbeme para inscribirte</a>
+        <a class="cta-button" href="https://wa.me/1234567890">Quiero mi cupo</a>
+    </section>
+    <footer>
+        <p>Tú no estás rota. Estás cíclica. Y no tienes que hacer este viaje sola.</p>
+    </footer>
+</body>
+</html>
+"""
